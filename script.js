@@ -60,3 +60,14 @@ function getColor(vote) {
     }
 }
 
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const searchTerm = search.value;
+
+    if(searchTerm){
+        getMovies(searchURL+'&query='+searchTerm)
+    } else {
+        getMovies(API_URL);
+    }
+} )
