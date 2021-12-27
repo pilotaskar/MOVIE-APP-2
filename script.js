@@ -21,6 +21,10 @@ function getMovies(url){
     })
 }
 
+
+
+
+
 function showMovies(data) {
     MAIN_CONTAINER.innerHTML = '';
 
@@ -58,7 +62,7 @@ function showMovies(data) {
     event.preventDefault();
 
     let searchTyping = document.getElementById('search').value;
-
+    
     if(searchTyping){
         getMovies(BUILDED_SEARCH_URL+'&query='+searchTyping)
     } 
