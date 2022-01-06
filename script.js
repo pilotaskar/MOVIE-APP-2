@@ -5,6 +5,7 @@ let MAIN_URL = 'https://api.themoviedb.org/3';
 let BUILDED_URL = MAIN_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY;
 
 let MAIN_IMG_URL = 'https://image.tmdb.org/t/p/w500';
+
 let BUILDED_SEARCH_URL = MAIN_URL+'/search/movie?'+API_KEY;
 
 let MAIN_CONTAINER = document.getElementById('main-container');
@@ -16,7 +17,7 @@ function getMovies(url){
     // USHUL ZHER BIR AZ KYIYN BOLUP ZHATAT
     fetch(url).then(res => res.json()).then(data => {
         
-        // console.log(data.results)
+        console.log(data.results)
         showMovies(data.results);
     })
 }
@@ -34,6 +35,7 @@ function showMovies(data) {
     let ADD_TO_MAIN_CONTAINER = document.createElement('div');
     ADD_TO_MAIN_CONTAINER.classList.add('movie-card');
     ADD_TO_MAIN_CONTAINER.innerHTML =`
+
         <img src="${MAIN_IMG_URL+poster_path}" alt="${title}">
 
             <div class="movie-info">
@@ -45,8 +47,7 @@ function showMovies(data) {
                 <div class="overview">
                   <h3>Overview</h3>
                   ${overview}
-    
-            </div>
+
             
             
         `
@@ -58,12 +59,16 @@ function showMovies(data) {
 
 
 
-    document.getElementById('search-form').addEventListener('submit', (event) => {
-    event.preventDefault();
+    document.getElementById('search-form').addEventListener('submit', (aisuluu) => {
+    aisuluu.preventDefault();
+
 
     let searchTyping = document.getElementById('search').value;
     
     if(searchTyping){
+
         getMovies(BUILDED_SEARCH_URL+'&query='+searchTyping)
+        console.log(searchTyping);
     } 
 } )
+
